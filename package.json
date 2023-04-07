@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "pg": "^8.10.0",
+    "sequelize": "^6.30.0"
+  },
+  "scripts": {
+    "populate": "node populate.js"
+  }
+}
