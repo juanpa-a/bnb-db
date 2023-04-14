@@ -1,17 +1,21 @@
 version: '3.8'
 services:
-  db:
-    container_name: postgres_container
+  postgres:
+    container_name: postgres
     image: postgres
     restart: always
     environment:
       DATABASE_HOST: 127.0.0.1
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
+    volumes:
+      - ./backup.dump:/tmp/backup.dump
+      - ./init.sh:/docker-entrypoint-initdb.d/init.sh
+
   pgadmin:
-    container_name: pgadmin6_container
+    container_name: pgadmin6
     image: dpage/pgadmin4
     restart: always
     environment:
